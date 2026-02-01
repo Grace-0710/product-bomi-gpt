@@ -1,14 +1,32 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotto Number Generator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+    <div class="container">
+        <h1>Lotto Number Generator</h1>
+        <div class="generator">
+            <div class="numbers-display" id="numbers"></div>
+            <button id="generate-btn">Generate Numbers</button>
+        </div>
+        <div class="past-winners">
+            <h2 id="past-winners-toggle">
+                Past Winning Numbers
+                <span class="arrow">▼</span>
+            </h2>
+            <ul id="past-winners-list">
+                <li><strong>Round 100:</strong> 1, 2, 3, 4, 5, 6</li>
+                <li><strong>Round 101:</strong> 7, 8, 9, 10, 11, 12</li>
+                <li><strong>Round 102:</strong> 13, 14, 15, 16, 17, 18</li>
+                <li><strong>Round 103:</strong> 19, 20, 21, 22, 23, 24</li>
+            </ul>
+        </div>
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>

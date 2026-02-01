@@ -1,1 +1,114 @@
-/* Add styles here */
+
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #f0f2f5;
+    background-image: url('data:image/svg+xml,...'); /* Subtle noise texture */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #1a73e8;
+    margin-bottom: 30px;
+}
+
+.generator {
+    margin-bottom: 40px;
+}
+
+.numbers-display {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    min-height: 70px;
+}
+
+.number {
+    width: 60px;
+    height: 60px;
+    background-color: #e8f0fe;
+    border: 2px solid #1a73e8;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #1a73e8;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+#generate-btn {
+    background-color: #1a73e8;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#generate-btn:hover {
+    background-color: #155ab6;
+    box-shadow: 0 0 20px rgba(26, 115, 232, 0.5);
+}
+
+.past-winners h2 {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.arrow {
+    transition: transform 0.3s;
+}
+
+#past-winners-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+}
+
+#past-winners-list.expanded {
+    max-height: 500px; /* Adjust as needed */
+}
+
+.arrow.expanded {
+    transform: rotate(180deg);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
