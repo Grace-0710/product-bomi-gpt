@@ -1,37 +1,15 @@
-
 document.addEventListener('DOMContentLoaded', () => {
-    const generateBtn = document.getElementById('generate-btn');
-    const numbersDisplay = document.getElementById('numbers');
-    const pastWinnersToggle = document.getElementById('past-winners-toggle');
-    const pastWinnersList = document.getElementById('past-winners-list');
-    const arrow = document.querySelector('.arrow');
+  const themeToggle = document.getElementById('theme-toggle');
+  const body = document.body;
 
-    generateBtn.addEventListener('click', () => {
-        generateAndDisplayNumbers();
-    });
+  const preferDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  let currentTheme = localStorage.getItem('theme') || (preferDark ? 'dark' : 'light');
 
-    pastWinnersToggle.addEventListener('click', () => {
-        pastWinnersList.classList.toggle('expanded');
-        arrow.classList.toggle('expanded');
-    });
+  body.setAttribute('data-theme', currentTheme);
 
-    function generateAndDisplayNumbers() {
-        numbersDisplay.innerHTML = ''; // Clear previous numbers
-        const numbers = generateUniqueNumbers(6, 1, 45);
-        numbers.forEach(number => {
-            const numberElement = document.createElement('div');
-            numberElement.className = 'number';
-            numberElement.textContent = number;
-            numbersDisplay.appendChild(numberElement);
-        });
-    }
-
-    function generateUniqueNumbers(count, min, max) {
-        const numbers = new Set();
-        while (numbers.size < count) {
-            const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-            numbers.add(randomNumber);
-        }
-        return Array.from(numbers).sort((a, b) => a - b);
-    }
+  themeToggle.addEventListener('click', () => {
+    currentTheme = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    body.setAttribute('data-theme', currentTheme);
+    localStorage.setItem('theme', currentTheme);
+  });
 });
